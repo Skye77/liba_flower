@@ -1,0 +1,63 @@
+*{ margin: 0; padding: 0}
+ul,ol{ list-style:none;}
+h2 span a{ font-size: 14px; color: red; }
+h2 a:hover{ color: red;}
+.liba_nav{ height: 70px;margin-bottom: 50px;}
+.liba_title{ font-size:20px;word-break: break-all;}
+.contBody{ /*height: 2000px;*/ width:800px; border:1px solid #C4D6EC; margin-top:30px;background-color: #F8FCFF}
+.fastSay{ height:50px; background-color: #F8FCFF;}
+.fastSay button{ padding: 0 10px; height: 30px; margin-top: 10px;}
+.fastSay .goSay{ margin-left: 30px; background-color: #66A4D8; color: #fff; border: 1px solid #518FCA;
+    border-radius: 2px; margin-right:6px;}
+.hideSpeak{ height:220px; width:798px; position: relative; display:none;}
+.taking{ height:130px; width: 740px; border:1px solid #C4D6EC;margin: 10px 30px 0 30px;resize: none;
+    overflow: auto; border-radius: 2px;}
+.hideSpeak .topArrow{ position: absolute; top:3px; left: 60px;height: 10px; width:15px;
+    background: url("../images/bg.png") no-repeat -86px -151px;}
+.login{ height: 50px; width: 740px; border:1px solid #C4D6EC; background-color: #F8FCFF;margin-left: 30px;
+    margin-top: -5px; border-top: none; position: relative;}
+.login .emailId,.login .emailPwd{ height:30px; width: 130px; border:1px solid #C4D6EC; margin:10px 6px;}
+.loginBtn{ height: 30px; width: 160px; margin: 10px 5px; }
+.loginBtn button{ padding: 0 5px; height: 25px; border: 1px solid #BBCBD8;margin-left:5px;border-radius: 2px;}
+.loginBtn input{ position: relative; top: 2px; left: -2px;}
+
+.hostTitle{ height: 50px; background-color:#e5eef8; border-top: 1px solid #c4d6ec;}
+.hostTitle h3{ margin-left: 30px;height: 50px; margin-top:0;line-height: 50px;color:#000;}
+.hostTitle h3 span{ font-size: 15px; margin-left: 10px;}
+.hostTitle h3 span i{ color: red;margin: 0 5px; font-style: normal;font-weight: bold;}
+.hostCont{ padding: 20px 0 35px; margin: 0 30px; min-height:110px;border-bottom: 1px dotted #afafb0}
+.botInfo li{ float: left; margin-left: 15px;}
+.botInfo li:hover a{ text-decoration: none;}
+.botInfo li:first-child a i{ font-style: normal; color: red;}
+.botInfo li:nth-child(2) a i{ font-style: normal; color: green;}
+.sayIcon{ display:inline-block; height:100%; width:50px;margin-right:10px; text-align: center;}
+.sayIcon img{ height:50px; width: 50px; border-radius: 50%; margin-bottom:5px;}
+.sayIcon button{ height:20px; padding: 1px 6px;font-size: 10px; display: none; }
+.sayIcon:hover{  text-decoration: none; }
+.sayIcon:hover button{ display: block;}
+.sayName{ margin-right:10px;}
+.report a{display: inline-block; width:53px; color: #666;text-align: right;margin-right: 10px;
+    background: url("../images/bg1.png") no-repeat 0 -103px;display: none;}
+.hostCont:hover .report a{ display: block}
+.midInfo{ font: 15px/25px "simsun"; color: #000; word-break: break-all; max-height:70px; overflow: hidden;
+    margin:7px 0 7px; }
+.botInfo{margin: 0;}
+.pageNav{ padding:15px 30px; margin: 0}
+.pageNav li{ float: left;}
+.pageNav li a{ padding: 0 6px; display: inline-block; height:18px; margin-left:7px;border: 1px solid #ccc;
+    border-radius: 0; line-height: 18px;}
+.pageNav li .ac{ background-color: #1F3A87;color: #fff;}
+.pageNav .prevP:hover,.pageNav .nextP:hover{ background-color: #1F3A87;color: #fff;}
+
+.botPageNav{ height: 50px; margin-bottom: 20px;}
+.loginTitle{ height:30px; background-color: #F1F7FC; margin-bottom: 10px; text-align: center}
+.loginTitle p{ font:600 14px/30px "simsun"; }
+.loginSpeak{ display: block;}
+.loginSpeak .login p{ font:12px/30px "simsun"; color: #666;}
+
+.hideTip,.pwdTip{ height:30px;display:none; position: absolute; padding:0 10px;top:-28px;
+    font:600 14px/30px "microsoft yahei"; background-color:palevioletred; color: #fff; border-radius: 3px;}
+.hideTip{ left:5px; }
+.pwdTip{ left:153px; }
+.guanzhu{ position: relative ;left:10px;}
+

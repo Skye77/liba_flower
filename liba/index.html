@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>毕业照大放送</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/bbs.js"></script>
+    <script src="js/controllers/speakList.js"></script>
+    <script src="js/filters/pageFilter.js"></script>
+    <script src="js/services/speakService.js"></script>
+</head>
+<body class="container" ng-controller="bbsCtrl">
+<div class="liba_nav">
+    <img src="images/nav.png">
+</div>
+<h2><a href="javascript:;" class="liba_title">毕业照大放送◆美式乡村110平◆海量功课分享◆朗观李静◆拉迷|艺王|星月神|科勒TOTO|西门子大金老板|伊派|小季|芝华仕|树之园|LMGF/MGC|曼姿|季建平|怡口|斯林百兰</a><span><a href="javascript:;">[查看详情]</a></span></h2>
+<div class="contBody">
+    <!--隐藏发言区-->
+    <div class="postMess">
+        <div class="fastSay">
+            <button id="tog" type="button" class="goSay" ng-click="fastSay()">快速发言</button>
+            <button type="button" class="goSet">去跟帖广场看看></button>
+        </div>
+        <div class="hideSpeak">
+            <span class="topArrow"></span>
+            <textarea class="taking" placeholder="抵制低俗，文明逛论坛，登录发言" ng-model="inputContent"></textarea>
+            <div class="login">
+                <div class="hideTip">请输入邮箱账号...</div>
+                <div class="pwdTip">请输入密码...</div>
+                <input class="emailId" type="text" placeholder="篱笆账号" ng-model="emailId">
+                <input class="emailPwd" type="password" ng-model="emailPwd">
+                <div class="loginBtn pull-right">
+                    <input type="checkbox" checked="checked">自动登录
+                    <button id="sayBtn" ng-click="addSpeak()">登录并发表</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--新贴-->
+    <div class="hostPost" ng-controller="speakListCtrl">
+        <!--分页导航条——顶部-->
+        <ul class="pageNav pull-right btn-group topNavPage">
+            <li ng-click="prevPage()"><a class="btn prevP">上一页</a></li>
+            <li ng-repeat="pN in data.speaks | navFilter:pageSize" ng-click="page(pN)">
+                <a class="btn" ng-class="pN==pageNum?'ac':''">{{pN}}</a>
+            </li>
+            <li ng-click="nextPage()"><a class="btn nextP">下一页</a></li>
+        </ul>
+        <!--发言区标题-->
+        <div class="hostTitle">
+            <h3>最新跟帖<span>（跟帖<i>{{sumCount()}}</i>条  有<i>{{canyu}}</i>人参与）</span></h3>
+        </div>
+        <!--发言区内容-->
+        <div class="hostCont" ng-repeat="speak in data.speaks | pageFilter:pageNum:pageSize">
+            <a href="javascript:;" class="sayIcon pull-left">
+                <img ng-src="{{speak.imgsrc}}">
+                <button class="guanzhu btn btn-primary">关注</button></a>
+            <div class="topInfo">
+                <a href="javascript:;" class="sayName">{{speak.name}}</a>
+                <span class="sayCity">[{{speak.city}}]</span>
+                <span class="sayTime pull-right">{{speak.time}}</span>
+                <span class="report pull-right"><a href="javascript:;">举报</a></span>
+            </div>
+            <p class="midInfo">{{speak.desc}}</p>
+            <ul class="botInfo pull-right">
+                <!--<li ng-click="ding=ding+1" ng-init="ding=0"><a href="javascript:;">顶<i>[{{ding}}]</i></a></li>-->
+                <li ng-click="ding(speak)"><a href="javascript:;">顶<i>[{{speak.ding}}]</i></a></li>
+                <!--<li ng-click="cai=cai+1" ng-init="cai=0"><a href="javascript:;">踩<i>[{{cai}}]</i></a></li>-->
+                <li ng-click="cai(speak)"><a href="javascript:;">踩<i>[{{speak.cai}}]</i></a></li>
+                <li><a href="javascript:;">回复</a></li>
+                <li><a href="javascript:;">收藏</a></li>
+                <li><a href="javascript:;">分享</a></li>
+                <li><a href="javascript:;">复制</a></li>
+            </ul>
+        </div>
+        <!--分页导航条——底部-->
+        <div class="botPageNav" >
+            <ul class="pageNav pull-right btn-group">
+                <li ng-click="prevPage()"><a class="btn prevP">上一页</a></li>
+                <li ng-repeat="pN in data.speaks | navFilter:pageSize" ng-click="page(pN)">
+                    <a class="btn" ng-class="pN==pageNum?'ac':''">{{pN}}</a>
+                </li>
+                <li ng-click="nextPage()"><a class="btn nextP">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--发言区-->
+    <div class="loginPost">
+        <div class="loginTitle">
+            <p>文明社会，从理性发贴开始。谢绝地域攻击。</p>
+        </div>
+        <div class="hideSpeak loginSpeak">
+            <textarea class="taking" placeholder="抵制低俗，文明上网，登录发言" ng-model="inputContent"></textarea>
+            <div class="login">
+                <div class="hideTip">请输入邮箱账号...</div>
+                <div class="pwdTip">请输入密码...</div>
+                <input class="emailId" type="text" placeholder="邮箱账号" ng-model="emailId">
+                <input class="emailPwd" type="password" placeholder="密码" ng-model="emailPwd">
+                <div class="loginBtn pull-right">
+                    <input type="checkbox" checked="checked">自动登录
+                    <button ng-click="addSpeak()">登录并发表</button>
+                </div>
+                <p>网友评论仅供网友表达个人看法，并不表明网易同意其观点或证实其描述</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="height: 300px;"></footer>
+</body>
+</html>

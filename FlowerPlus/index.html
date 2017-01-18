@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Flower城</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/lib/angular/angular-route.js"></script>
+    <script src="js/lib/angular/angular-messages.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/sportStore.js"></script>
+    <script src="js/controllers/productList.js"></script>
+    <script src="js/filters/marsFilter.js"></script>
+    <script src="js/services/cartService.js"></script>
+    <script src="js/controllers/checkout.js"></script>
+    <script src="js/controllers/order.js"></script>
+    <style>
+        body{ background: url("images/bg_2.jpg") no-repeat;
+        background-size: cover;}
+        h1{ font-size: 40px; font-family: "Microsoft YaHei";padding-left: 100px;
+        color: teal; font-weight: bold;animation: h1_run 1s;text-shadow: 0 0 20px #fff; }
+        .navbar{ background: #84B8C1;border:2px solid #84B8C1;}
+        .navbar-right { float: right !important; margin-right: 5px;}
+        .navbar-text { margin-right: 10px; }
+        .late{ animation: lateRun 1s; }
+        .lead{ font-size:18px; }
+        .flow_cart{ padding-left: 50px; font-weight: bold;color: deeppink;  }
+        @keyframes  lateRun{
+            0%{
+                transform:rotate(0deg);
+                color: #fff
+            }
+            50%{
+                transform:rotate(-6deg);
+                color: #fff
+            }
+            100%{
+                transform:rotate(0deg);
+                color: #fff
+            }
+        }
+        @keyframes  h1_run{
+            0%{
+                transform:translateX(-100%);
+            }
+            100%{
+                transform:translateX(0);
+            }
+        }
+    </style>
+</head>
+<body ng-controller="sportStoreCtrl">
+<h1>FlowerPlus之城</h1>
+<div class="navbar navbar-inverse" ng-controller="cartCtrl">
+    <a class="navbar-brand" href="#/" style="color:teal;padding-left:30px;">从不相信一见钟情，直到遇到命中注定，于是脑海里都是恋人的身影</a>
+    <div class="navbar-right">
+        <div class="navbar-text" style="color:#000;">
+            <b>您的购物车:</b>
+            {{sumCout()}}个商品, {{sumMoney()|currency:'RMB &yen;'}}
+        </div>
+        <a class="btn btn-default navbar-btn" href="#/checkout">结账</a>
+    </div>
+</div>
+<!--ngView-->
+<div ng-view=></div>
+</body>
+</html>
